@@ -9,6 +9,8 @@ HEIGHT = 750
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
+# pygame.image.load('assets/img/nome.jpeg')
+
 #Inicia estruturade dados
 game = True
 
