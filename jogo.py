@@ -1,5 +1,6 @@
 #Importa e inicia pacotes
 import pygame 
+import random
 pygame.init() 
 
 #Gera tela principal
