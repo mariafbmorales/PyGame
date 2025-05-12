@@ -4,7 +4,9 @@ import random
 pygame.init() 
 
 #Gera tela principal
-window = pygame.display.set_mode((600, 750))
+WIDTH = 600
+HEIGHT = 750
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
 #Inicia estruturade dados
