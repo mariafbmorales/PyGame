@@ -24,8 +24,9 @@ dado5_img = pygame.image.load('assets/img/dado5.jpeg').convert_alpha()
 dado5_img_small = pygame.transform.scale(dado5_img, (DADO_WIDTH, DADO_HEIGHT))
 dado6_img = pygame.image.load('assets/img/dado6.jpeg').convert_alpha()
 dado6_img_small = pygame.transform.scale(dado6_img, (DADO_WIDTH, DADO_HEIGHT))
+lista_dados = [dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_small, dado5_img_small, dado6_img_small]
 
-#Inicia estruturade dados
+#Inicia estrutura de dados
 game = True
 
 #Loop principal
@@ -33,7 +34,10 @@ while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
-
+    class Dados(pygame.sprite.Sprite):
+        def __init__(self):
+            sorteio = random(0, len(lista_dados))
+            self.image = pygame.image.load(sorteio).convert.alpha()
     #Gera saídas
     window.fill((255, 204, 229)) #Preenche com a cor rosa 
 
