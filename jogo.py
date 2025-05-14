@@ -10,8 +10,8 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
 #Inicia assets
-DADO_WIDTH = 100
-DADO_HEIGHT = 100
+DADO_WIDTH = 125
+DADO_HEIGHT = 125
 dado1_img = pygame.image.load('assets/img/dado1-removebg-preview.png').convert_alpha()
 dado1_img_small = pygame.transform.scale(dado1_img, (DADO_WIDTH, DADO_HEIGHT))
 dado2_img = pygame.image.load('assets/img/dado2-removebg-preview.png').convert_alpha()
@@ -32,7 +32,7 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
         n_animado = random.randint(1, 6)
         imagem = lista_dados[n_animado]
         window.fill((255, 204, 229)) #Fundo rosa
-        window.blit(imagem, (WIDTH // 2, HEIGHT // 2))
+        window.blit(imagem, ((WIDTH-DADO_WIDTH) // 2, (HEIGHT-DADO_HEIGHT) // 2))
         pygame.display.update()
         pygame.time.delay(70) #Delay entre frames
 
@@ -98,17 +98,17 @@ while game:
 
     #Gerando imagens dos dados
     if n == 1:
-        window.blit(dado1_img_small, (WIDTH//2, HEIGHT//2))
+        window.blit(dado1_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
     elif n == 2:
-        window.blit(dado2_img_small, (WIDTH//2, HEIGHT//2))
+        window.blit(dado2_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
     elif n ==3:
-        window.blit(dado3_img_small, (WIDTH//2, HEIGHT//2))
+        window.blit(dado3_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
     elif n == 4:
-        window.blit(dado4_img_small, (WIDTH//2, HEIGHT//2))
+        window.blit(dado4_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
     elif n == 5:
-        window.blit(dado5_img_small, (WIDTH//2, HEIGHT//2))
+        window.blit(dado5_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
     elif n == 6:
-        window.blit(dado6_img_small, (WIDTH//2, HEIGHT//2))
+        window.blit(dado6_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
 
     #Gerando o texto 
     font = pygame.font.SysFont('arial', 25)
