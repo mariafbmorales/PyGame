@@ -84,17 +84,17 @@ while game:
 
     #Gerando imagens dos dados
     if n == 1:
-        window.blit(dado1_img_small, (300, 375))
+        window.blit(dado1_img_small, (WIDTH//2, HEIGHT//2))
     elif n == 2:
-        window.blit(dado2_img_small, (300, 375))
+        window.blit(dado2_img_small, (WIDTH//2, HEIGHT//2))
     elif n ==3:
-        window.blit(dado3_img_small, (300, 375))
+        window.blit(dado3_img_small, (WIDTH//2, HEIGHT//2))
     elif n == 4:
-        window.blit(dado4_img_small, (300, 375))
+        window.blit(dado4_img_small, (WIDTH//2, HEIGHT//2))
     elif n == 5:
-        window.blit(dado5_img_small, (300, 375))
+        window.blit(dado5_img_small, (WIDTH//2, HEIGHT//2))
     elif n == 6:
-        window.blit(dado6_img_small, (300, 375))
+        window.blit(dado6_img_small, (WIDTH//2, HEIGHT//2))
     #Gerando o texto 
     font = pygame.font.SysFont('georgia', 25)
     total1 = font.render('TOTAL 1: ', True, (244, 244, 244))
