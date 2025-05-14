@@ -10,6 +10,8 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
 #Inicia assets
+fundo = pygame.image.load('assets/img/teladefundo.png').convert()
+fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
 DADO_WIDTH = 125
 DADO_HEIGHT = 125
 dado1_img = pygame.image.load('assets/img/dado1-removebg-preview.png').convert_alpha()
@@ -31,7 +33,7 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
     for _ in range(10):  #10 frames de "giro"
         n_animado = random.randint(1, 6)
         imagem = lista_dados[n_animado]
-        window.fill((255, 204, 229)) #Fundo rosa
+        window.blit(fundo, (0, 0)) #Fundo
         window.blit(imagem, ((WIDTH-DADO_WIDTH) // 2, (HEIGHT-DADO_HEIGHT) // 2))
         pygame.display.update()
         pygame.time.delay(70) #Delay entre frames
@@ -94,7 +96,8 @@ while game:
 
         
     #Gera saídas
-    window.fill((255, 204, 229)) #Preenche com a cor rosa
+    window.fill((0, 0, 0)) #Preenche com a cor branca
+    window.blit(fundo, (0, 0))
 
     #Gerando imagens dos dados
     if n == 1:
@@ -145,10 +148,10 @@ while game:
     
     #Desenhando botões
     cor_verde = (0, 255, 0)
-    pygame.draw.rect(window, cor_verde, (50, 500, 200, 70))
+    pygame.draw.rect(window, cor_verde, (50, 550, 200, 70))
 
     cor_vermelha = (255, 0, 0)
-    pygame.draw.rect(window, cor_vermelha, (350, 500, 200, 70))
+    pygame.draw.rect(window, cor_vermelha, (350, 550, 200, 70))
 
 
     #Atualiza estado do jogo
