@@ -34,11 +34,6 @@ while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
-    class Dados(pygame.sprite.Sprite):
-        def __init__(self):
-            numero_sorteado = random(1, len(lista_dados)) #sorteando aleatoriamente o dado da jogada
-            dado_sorteado = lista_dados[numero_sorteado] 
-            self.image = pygame.image.load(dado_sorteado).convert.alpha()
     #Gera saídas
     window.fill((255, 204, 229)) #Preenche com a cor rosa 
 
