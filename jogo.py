@@ -10,7 +10,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
 #Inicia assets
-fundo = pygame.image.load('assets/img/teladefundo.png').convert()
+fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fundo gerada pelo ChatGPT
 fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
 DADO_WIDTH = 125
 DADO_HEIGHT = 125
