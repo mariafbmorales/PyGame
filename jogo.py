@@ -1,7 +1,9 @@
 #Importa e inicia pacotes
 import pygame 
 import random
+
 pygame.init() 
+pygame.mixer.init() #Inicializando o uso de sons
 
 #Gera tela principal
 WIDTH = 600
@@ -61,7 +63,6 @@ while game:
             pos = pygame.mouse.get_pos()
             if ret_verde.collidepoint(pos): #Verifica de o usuario apertou a seta para cima (girou o dado)
                 animar_dado(window, lista_dados, WIDTH, HEIGHT) #Animação do dado girando
-
                 n = random.randint(1, 6) #Sorteia o dado
                 print(n)
                 dado_sorteado = lista_dados[n]
