@@ -54,10 +54,12 @@ while game:
 
         if event.type == pygame.KEYUP: 
             if event.key == pygame.K_UP: #Verifica de o usuario apertou a seta para cima (girou o dado)
-                animar_dado(window, lista_dados, WIDTH, HEIGHT)  #Animação do dado girando
-                n = random.randint(1, 6)  #Sorteia o dado
+                animar_dado(window, lista_dados, WIDTH, HEIGHT) #Animação do dado girando
+
+                n = random.randint(1, 6) #Sorteia o dado
                 print(n)
                 dado_sorteado = lista_dados[n]
+
                 if n == 2:
                     pontuacao_partida += 2
                 elif n == 3:
@@ -72,6 +74,7 @@ while game:
                     pontuacao_partida = 0
                     perdeu = True
                 print("Pontuacao partida", pontuacao_partida)
+                
             if event.key == pygame.K_DOWN or perdeu: #Verifica de o usuario apertou a seta para baixo (terminou sua jogada)
                 perdeu = False
                 if vez == 1:
