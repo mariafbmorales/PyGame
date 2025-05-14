@@ -35,7 +35,7 @@ pontuacao_partida = 0
 venceu = 0
 perdeu = False
 vez = 1
-
+n = 0
 #Loop principal
 while game:
     for event in pygame.event.get():
@@ -78,9 +78,30 @@ while game:
                 print("Pont total 2:",pontuacao_total2)
                 print("Vez do jogador ",vez)
 
-                
+        
     #Gera saídas
-    window.fill((255, 204, 229)) #Preenche com a cor rosa 
+    window.fill((255, 204, 229)) #Preenche com a cor rosa
+
+    #Gerando imagens dos dados
+    if n == 1:
+        window.blit(dado1_img_small, (300, 350))
+    elif n == 2:
+        window.blit(dado2_img_small, (300, 350))
+    elif n ==3:
+        window.blit(dado3_img_small, (300, 350))
+    elif n == 4:
+        window.blit(dado4_img_small, (300, 350))
+    elif n == 5:
+        window.blit(dado5_img_small, (300, 350))
+    elif n == 6:
+        window.blit(dado6_img_small, (300, 350))
+    #Gerando o texto 
+    font = pygame.font.SysFont('georgia', 25)
+    total1 = font.render('TOTAL 1: ', True, (244, 244, 244))
+    text_rect = total1.get_rect()
+    text_rect.midtop = (WIDTH //5, 15)
+    
+    window.blit(total1, text_rect)
 
     #Atualiza estado do jogo
     pygame.display.update()
