@@ -142,6 +142,14 @@ while game:
         text_rect = vez2.get_rect()
         text_rect.midtop = (290, 100)
         window.blit(vez2, text_rect)
+    
+    #Desenhando botões
+    cor_verde = (0, 255, 0)
+    pygame.draw.rect(window, cor_verde, (50, 500, 200, 70))
+
+    cor_vermelha = (255, 0, 0)
+    pygame.draw.rect(window, cor_vermelha, (350, 500, 200, 70))
+
 
     #Atualiza estado do jogo
     pygame.display.update()
