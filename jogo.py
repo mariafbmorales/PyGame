@@ -26,15 +26,15 @@ dado6_img = pygame.image.load('assets/img/dado6-removebg-preview.png').convert_a
 dado6_img_small = pygame.transform.scale(dado6_img, (DADO_WIDTH, DADO_HEIGHT))
 lista_dados = [0,dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_small, dado5_img_small, dado6_img_small]
 
-# Função para animar o dado girando (retirado do ChatGPT)
+#Função para animar o dado girando (retirado do ChatGPT)
 def animar_dado(window, lista_dados, WIDTH, HEIGHT):
-    for _ in range(10):  # 10 frames de "giro"
+    for _ in range(10):  #10 frames de "giro"
         n_animado = random.randint(1, 6)
         imagem = lista_dados[n_animado]
-        window.fill((255, 204, 229))  # Fundo rosa
+        window.fill((255, 204, 229)) #Fundo rosa
         window.blit(imagem, (WIDTH // 2, HEIGHT // 2))
         pygame.display.update()
-        pygame.time.delay(70)  # Delay entre frames
+        pygame.time.delay(70) #Delay entre frames
 
 #Inicia estrutura de dados
 game = True
@@ -52,10 +52,10 @@ while game:
         if event.type == pygame.QUIT:
             game = False
 
-        if event.type == pygame.KEYUP: #Verifica se o usuario apertou keyup (girou o dado)
-            if event.key == pygame.K_UP:
-                animar_dado(window, lista_dados, WIDTH, HEIGHT)  # <<< anima primeiro
-                n = random.randint(1, 6)  # depois sorteia real
+        if event.type == pygame.KEYUP: 
+            if event.key == pygame.K_UP: #Verifica de o usuario apertou a seta para cima (girou o dado)
+                animar_dado(window, lista_dados, WIDTH, HEIGHT)  #Animação do dado girando
+                n = random.randint(1, 6)  #Sorteia o dado
                 print(n)
                 dado_sorteado = lista_dados[n]
                 if n == 2:
@@ -72,15 +72,15 @@ while game:
                     pontuacao_partida = 0
                     perdeu = True
                 print("Pontuacao partida", pontuacao_partida)
-            if event.key == pygame.K_DOWN or perdeu:
+            if event.key == pygame.K_DOWN or perdeu: #Verifica de o usuario apertou a seta para baixo (terminou sua jogada)
                 perdeu = False
                 if vez == 1:
-                    pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total
+                    pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 1
                     if pontuacao_total1 >= 100:
                         venceu = 1
                     vez = 2
                 else:
-                    pontuacao_total2 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total
+                    pontuacao_total2 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 2
                     if pontuacao_total2 >= 100:
                         venceu = 2
                     vez = 1
