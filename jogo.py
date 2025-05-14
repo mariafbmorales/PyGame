@@ -96,12 +96,25 @@ while game:
     elif n == 6:
         window.blit(dado6_img_small, (WIDTH//2, HEIGHT//2))
     #Gerando o texto 
-    font = pygame.font.SysFont('georgia', 25)
-    total1 = font.render('TOTAL 1: ', True, (244, 244, 244))
+    font = pygame.font.SysFont('arial', 25)
+
+    #Texto da pontuação total do jogador 1:
+    total1 = font.render('TOTAL 1: '"{:03d}".format(pontuacao_total1), True, (244, 244, 244))
     text_rect = total1.get_rect()
-    text_rect.midtop = (WIDTH //5, 15)
-    
+    text_rect.midtop = (WIDTH //4, 15)
     window.blit(total1, text_rect)
+
+    #Texto da pontuação total do jogador 2:
+    total2 = font.render('TOTAL 2: '"{:03d}".format(pontuacao_total2), True, (244, 244, 244))
+    text_rect = total2.get_rect()
+    text_rect.midtop = (WIDTH*3//4, 15)
+    window.blit(total2, text_rect)
+
+    #Texto da pontuação da partida:
+    partida = font.render('JOGADA: '"{:03d}".format(pontuacao_partida), True, (244, 244, 244))
+    text_rect = partida.get_rect()
+    text_rect.midtop = (WIDTH //2, 700)
+    window.blit(partida, text_rect)
 
     #Atualiza estado do jogo
     pygame.display.update()
