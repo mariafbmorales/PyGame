@@ -26,6 +26,16 @@ dado6_img = pygame.image.load('assets/img/dado6-removebg-preview.png').convert_a
 dado6_img_small = pygame.transform.scale(dado6_img, (DADO_WIDTH, DADO_HEIGHT))
 lista_dados = [0,dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_small, dado5_img_small, dado6_img_small]
 
+# Função para animar o dado girando (retirado do ChatGPT)
+def animar_dado(window, lista_dados, WIDTH, HEIGHT):
+    for _ in range(10):  # 10 frames de "giro"
+        n_animado = random.randint(1, 6)
+        imagem = lista_dados[n_animado]
+        window.fill((255, 204, 229))  # Fundo rosa
+        window.blit(imagem, (WIDTH // 2, HEIGHT // 2))
+        pygame.display.update()
+        pygame.time.delay(70)  # Delay entre frames
+
 #Inicia estrutura de dados
 game = True
 
@@ -44,7 +54,8 @@ while game:
 
         if event.type == pygame.KEYUP: #Verifica se o usuario apertou keyup (girou o dado)
             if event.key == pygame.K_UP:
-                n = random.randint(1, 6)
+                animar_dado(window, lista_dados, WIDTH, HEIGHT)  # <<< anima primeiro
+                n = random.randint(1, 6)  # depois sorteia real
                 print(n)
                 dado_sorteado = lista_dados[n]
                 if n == 2:
