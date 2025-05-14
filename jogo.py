@@ -29,11 +29,34 @@ lista_dados = [0,dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_sm
 #Inicia estrutura de dados
 game = True
 
+pontuacao_total = 0
+
 #Loop principal
 while game:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
+
+        #Verifica se o usuario apertou o espaço (girou o dado)
+        pontuacao_partida = 0
+        if event.type == pygame.KEYUP:
+            n = random.randint(1, 6)
+            dado_sorteado = lista_dados[n]
+            if dado_sorteado == 2:
+                pontuacao_partida += 2
+            elif dado_sorteado == 3:
+                pontuacao_partida += 3
+            elif dado_sorteado == 4:
+                pontuacao_partida += 4
+            elif dado_sorteado == 5:
+                pontuacao_partida += 5
+            elif dado_sorteado == 6:
+                pontuacao_partida += 6
+            elif dado_sorteado == 1:
+                pontuacao_partida = 0
+
+        pontuacao_total += pontuacao_partida #Adicioa a pontuação daquela partida na pontuação total
+                
     #Gera saídas
     window.fill((255, 204, 229)) #Preenche com a cor rosa 
 
