@@ -149,10 +149,17 @@ while game:
     #Desenhando botões
     cor_verde = (0, 255, 0)
     pygame.draw.rect(window, cor_verde, (50, 550, 200, 70))
+    rodar = font.render('RODAR', True, (244, 244, 244))
+    text_rect = rodar.get_rect()
+    text_rect.midtop = (150, 570)
+    window.blit(rodar, text_rect)
 
     cor_vermelha = (255, 0, 0)
     pygame.draw.rect(window, cor_vermelha, (350, 550, 200, 70))
-
+    parar = font.render('PARAR', True, (244, 244, 244))
+    text_rect = parar.get_rect()
+    text_rect.midtop = (450, 570)
+    window.blit(parar, text_rect)
 
     #Atualiza estado do jogo
     pygame.display.update()
