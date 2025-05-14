@@ -41,6 +41,9 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
 #Inicia estrutura de dados
 game = True
 
+ret_verde = pygame.Rect(50, 550, 200, 70)
+ret_vermelho = pygame.Rect(350, 550, 200, 70)
+
 pontuacao_total1 = 0
 pontuacao_total2 = 0
 pontuacao_partida = 0
@@ -54,8 +57,9 @@ while game:
         if event.type == pygame.QUIT:
             game = False
 
-        if event.type == pygame.KEYUP: 
-            if event.key == pygame.K_UP: #Verifica de o usuario apertou a seta para cima (girou o dado)
+        if event.type == pygame.MOUSEBUTTONDOWN: 
+            pos = pygame.mouse.get_pos()
+            if ret_verde.collidepoint(pos): #Verifica de o usuario apertou a seta para cima (girou o dado)
                 animar_dado(window, lista_dados, WIDTH, HEIGHT) #Animação do dado girando
 
                 n = random.randint(1, 6) #Sorteia o dado
@@ -77,7 +81,7 @@ while game:
                     perdeu = True
                 print("Pontuacao partida", pontuacao_partida)
                 
-            if event.key == pygame.K_DOWN or perdeu: #Verifica de o usuario apertou a seta para baixo (terminou sua jogada)
+            if ret_vermelho.collidepoint(pos) or perdeu: #Verifica de o usuario apertou a seta para baixo (terminou sua jogada)
                 perdeu = False
                 if vez == 1:
                     pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 1
@@ -148,14 +152,14 @@ while game:
     
     #Desenhando botões
     cor_verde = (0, 255, 0)
-    pygame.draw.rect(window, cor_verde, (50, 550, 200, 70))
+    pygame.draw.rect(window, cor_verde, ret_verde)
     rodar = font.render('RODAR', True, (244, 244, 244))
     text_rect = rodar.get_rect()
     text_rect.midtop = (150, 570)
     window.blit(rodar, text_rect)
 
     cor_vermelha = (255, 0, 0)
-    pygame.draw.rect(window, cor_vermelha, (350, 550, 200, 70))
+    pygame.draw.rect(window, cor_vermelha, ret_vermelho)
     parar = font.render('PARAR', True, (244, 244, 244))
     text_rect = parar.get_rect()
     text_rect.midtop = (450, 570)
