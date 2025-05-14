@@ -26,7 +26,7 @@ dado6_img = pygame.image.load('assets/img/dado6-removebg-preview.png').convert_a
 dado6_img_small = pygame.transform.scale(dado6_img, (DADO_WIDTH, DADO_HEIGHT))
 lista_dados = [0,dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_small, dado5_img_small, dado6_img_small]
 
-#Função para animar o dado girando (retirado do ChatGPT)
+#Função para animar o dado girando (feito 100% pelo ChatGPT)
 def animar_dado(window, lista_dados, WIDTH, HEIGHT):
     for _ in range(10):  #10 frames de "giro"
         n_animado = random.randint(1, 6)
@@ -130,6 +130,18 @@ while game:
     text_rect = partida.get_rect()
     text_rect.midtop = (WIDTH //2, 700)
     window.blit(partida, text_rect)
+
+    #Colocando de qual jogador é a vez
+    if vez == 1:
+        vez1 = font.render('VEZ DO JOGADOR 1', True, (244, 244, 244))
+        text_rect = vez1.get_rect()
+        text_rect.midtop = (290, 100)
+        window.blit(vez1, text_rect)
+    elif vez == 2:
+        vez2 = font.render('VEZ DO JOGADOR 2', True, (244, 244, 244))
+        text_rect = vez2.get_rect()
+        text_rect.midtop = (290, 100)
+        window.blit(vez2, text_rect)
 
     #Atualiza estado do jogo
     pygame.display.update()
