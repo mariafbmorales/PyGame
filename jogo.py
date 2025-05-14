@@ -10,8 +10,8 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
 #Inicia assets
-DADO_WIDTH = 70
-DADO_HEIGHT = 70
+DADO_WIDTH = 100
+DADO_HEIGHT = 100
 dado1_img = pygame.image.load('assets/img/dado1-removebg-preview.png').convert_alpha()
 dado1_img_small = pygame.transform.scale(dado1_img, (DADO_WIDTH, DADO_HEIGHT))
 dado2_img = pygame.image.load('assets/img/dado2-removebg-preview.png').convert_alpha()
@@ -84,17 +84,17 @@ while game:
 
     #Gerando imagens dos dados
     if n == 1:
-        window.blit(dado1_img_small, (300, 350))
+        window.blit(dado1_img_small, (300, 375))
     elif n == 2:
-        window.blit(dado2_img_small, (300, 350))
+        window.blit(dado2_img_small, (300, 375))
     elif n ==3:
-        window.blit(dado3_img_small, (300, 350))
+        window.blit(dado3_img_small, (300, 375))
     elif n == 4:
-        window.blit(dado4_img_small, (300, 350))
+        window.blit(dado4_img_small, (300, 375))
     elif n == 5:
-        window.blit(dado5_img_small, (300, 350))
+        window.blit(dado5_img_small, (300, 375))
     elif n == 6:
-        window.blit(dado6_img_small, (300, 350))
+        window.blit(dado6_img_small, (300, 375))
     #Gerando o texto 
     font = pygame.font.SysFont('georgia', 25)
     total1 = font.render('TOTAL 1: ', True, (244, 244, 244))
