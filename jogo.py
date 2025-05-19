@@ -16,10 +16,11 @@ pygame.display.set_caption('No 1, rodou')
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
 
+    fundo1 = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
-    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
+    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT/1.2))
     
-    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 20)
+    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
     instrucoes = font_inst.render('CLIQUE PARA JOGAR', True, (255, 255, 255))
 
     while inicio:
@@ -30,7 +31,8 @@ def tela_inicial(window, WIDTH, HEIGHT):
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 inicio = False
 
-        window.blit(fundo, (0, 0))
+        window.blit(fundo1, (0,0))
+        window.blit(fundo, (0, 30))
         window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 650))
         pygame.display.update()
 
