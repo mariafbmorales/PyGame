@@ -218,19 +218,19 @@ while game and venceu == 0:
     
     #Desenhando botões
     cor_verde = (0, 255, 0)
-    # pygame.draw.rect(window, cor_verde, ret_verde)
     window.blit(botaoverde, (50, 550))
+    font = pygame.font.Font('assets/font/PressStart2P.ttf', 22)
     rodar = font.render('RODAR', True, (244, 244, 244))
     text_rect = rodar.get_rect()
-    text_rect.midtop = (150, 570)
+    text_rect.midtop = (157, 578)
     window.blit(rodar, text_rect)
 
     cor_vermelha = (255, 0, 0)
-    # pygame.draw.rect(window, cor_vermelha, ret_vermelho)
     window.blit(botaovermelho, (350, 550))
+    font = pygame.font.Font('assets/font/PressStart2P.ttf', 22)
     parar = font.render('PARAR', True, (244, 244, 244))
     text_rect = parar.get_rect()
-    text_rect.midtop = (450, 570)
+    text_rect.midtop = (457, 578)
     window.blit(parar, text_rect)
 
     #Atualiza estado do jogo
