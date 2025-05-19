@@ -66,6 +66,31 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
         pygame.display.update()
         pygame.time.delay(70) #Delay entre frames
 
+def tela_final(window, WIDTH, HEIGHT, jogador_vencedor): #Feito 50% pelo ChatGPT
+    fundo = pygame.image.load('assets/img/imagemfundo2.png').convert_alpha()
+    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
+    
+    font_tit = pygame.font.SysFont('arial black', 50)
+    titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
+    titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
+    
+    font_inst = pygame.font.SysFont('arial', 25)
+    instrucoes = font_inst.render('Clique ou aperte uma tecla para sair', True, (255, 255, 255))
+
+    fim = True
+    while fim:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+                fim = False
+
+        window.blit(fundo, (0, 0))
+        window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
+        window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
+        pygame.display.update()
+
 #Inicia estrutura de dados
 game = True
 
@@ -199,6 +224,8 @@ while game and venceu == 0:
 
     #Atualiza estado do jogo
     pygame.display.update()
+if venceu != 0:
+    tela_final(window, WIDTH, HEIGHT, venceu)
 
 #Finalização
 pygame.quit()
