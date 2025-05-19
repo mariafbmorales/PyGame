@@ -45,8 +45,8 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
     
-    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
-    instrucoes = font_inst.render('Clique ou aperte uma tecla para sair', True, (255, 255, 255))
+    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 20)
+    instrucoes = font_inst.render('Aperte uma tecla para sair', True, (255, 255, 255))
 
     fim = True
     while fim:
