@@ -115,7 +115,7 @@ while game and venceu == 0:
 
         if event.type == pygame.MOUSEBUTTONDOWN: 
             pos = pygame.mouse.get_pos()
-            if ret_verde.collidepoint(pos): #Verifica de o usuario apertou a seta para cima (girou o dado)
+            if ret_verde.collidepoint(pos): #Verifica de o usuario apertou o botão verde (girou o dado)
                 animar_dado(window, lista_dados, WIDTH, HEIGHT) #Animação do dado girando
                 n = random.randint(1, 6) #Sorteia o dado
                 print(n)
@@ -136,7 +136,7 @@ while game and venceu == 0:
                     perdeu = True
                 print("Pontuacao partida", pontuacao_partida)
                 
-            if ret_vermelho.collidepoint(pos) or perdeu: #Verifica de o usuario apertou a seta para baixo (terminou sua jogada)
+            if ret_vermelho.collidepoint(pos) or perdeu: #Verifica de o usuario apertou o botão vermelho (terminou sua jogada)
                 perdeu = False
                 if vez == 1:
                     pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 1
