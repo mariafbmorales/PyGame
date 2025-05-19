@@ -19,9 +19,6 @@ def tela_inicial(window, WIDTH, HEIGHT):
     fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
-    font_tit = pygame.font.Font('assets/font/fonte.TTF', 50)
-    titulo = font_tit.render('No 1, rodou!', True, (255, 255, 255))
-    
     font_inst = pygame.font.SysFont('arial', 25)
     instrucoes = font_inst.render('Clique ou aperte uma tecla para começar o jogo', True, (255, 255, 255))
 
@@ -34,7 +31,6 @@ def tela_inicial(window, WIDTH, HEIGHT):
                 inicio = False
 
         window.blit(fundo, (0, 0))
-        window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
         window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
         pygame.display.update()
 
