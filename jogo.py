@@ -20,8 +20,8 @@ def tela_inicial(window, WIDTH, HEIGHT):
     fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT/1.2))
     
-    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
-    instrucoes = font_inst.render('CLIQUE PARA JOGAR', True, (255, 255, 255))
+    inicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
+    inicio_img_small = pygame.transform.scale(inicio, (250, 250))
 
     while inicio:
         for event in pygame.event.get():
@@ -33,7 +33,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
         window.blit(fundo1, (0,0))
         window.blit(fundo, (0, 30))
-        window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 650))
+        window.blit(inicio_img_small, ((175, 540)))
         pygame.display.update()
 
 #Tela final do jogo (feito 50% pelo ChatGPT)
