@@ -41,11 +41,11 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
-    font_tit = pygame.font.SysFont('arial black', 50)
+    font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
     
-    font_inst = pygame.font.SysFont('arial', 25)
+    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     instrucoes = font_inst.render('Clique ou aperte uma tecla para sair', True, (255, 255, 255))
 
     fim = True
@@ -184,7 +184,7 @@ while game and venceu == 0:
         window.blit(dado6_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
 
     #Gerando o texto 
-    font = pygame.font.SysFont('arial', 25)
+    font = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
 
     #Texto da pontuação total do jogador 1
     total1 = font.render('TOTAL 1: '"{:03d}".format(pontuacao_total1), True, (244, 244, 244))
