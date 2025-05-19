@@ -11,6 +11,31 @@ HEIGHT = 750
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
+#Tela inicial do jogo (feito 50% pelo ChatGPT)
+def tela_inicial(window, WIDTH, HEIGHT):
+    inicio = True
+
+    fundo = pygame.image.load('assets/img/teladefundo.png').convert()
+    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
+    
+    font_tit = pygame.font.SysFont('arial', 25)
+    titulo = font_tit.render('No 1, rodou!', True, (255, 255, 255))
+    font_inst = pygame.font.SysFont('arial', 25)
+    instrucoes = font_inst.render('Clique ou aperte uma tecla para começar o jogo', True, (255, 255, 255))
+
+    while inicio:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+                inicio = False
+
+        window.blit(fundo, (0, 0))
+        window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
+        window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
+        pygame.display.update()
+
 #Inicia assets
 fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fundo gerada pelo ChatGPT
 fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
@@ -50,9 +75,12 @@ pontuacao_total1 = 0
 pontuacao_total2 = 0
 pontuacao_partida = 0
 venceu = 0
-perdeu = False
-vez = 1
 n = 0
+vez = 1
+perdeu = False
+
+tela_inicial(window, WIDTH, HEIGHT) #Chamando tela inicial antes do inicio do jogo
+
 #Loop principal
 while game:
     for event in pygame.event.get():
