@@ -15,7 +15,7 @@ pygame.display.set_caption('No 1, rodou')
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
 
-    fundo = pygame.image.load('assets/img/teladefundo.png').convert()
+    fundo = pygame.image.load('assets/img/imagemfundo2.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
     font_tit = pygame.font.SysFont('arial black', 50)
@@ -83,7 +83,7 @@ perdeu = False
 tela_inicial(window, WIDTH, HEIGHT) #Chamando tela inicial antes do inicio do jogo
 
 #Loop principal
-while game:
+while game and venceu == 0:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
@@ -115,13 +115,15 @@ while game:
                 perdeu = False
                 if vez == 1:
                     pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 1
-                    if pontuacao_total1 >= 100:
+                    if pontuacao_total1 >= 10:
                         venceu = 1
+                        print("1 venceu")
                     vez = 2
                 else:
                     pontuacao_total2 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 2
-                    if pontuacao_total2 >= 100:
+                    if pontuacao_total2 >= 10:
                         venceu = 2
+                        print("2 venceu")
                     vez = 1
                 pontuacao_partida = 0
                 print("Pont total 1:",pontuacao_total1)
