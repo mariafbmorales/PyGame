@@ -69,9 +69,9 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
 fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fundo gerada pelo ChatGPT
 fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
 
-botaoverde = pygame.image.load('assets/img/botaoverde-removebg-preview.png').convert() 
+botaoverde = pygame.image.load('assets/img/botaoverde.png').convert_alpha() 
 botaoverde = pygame.transform.scale(botaoverde, (210, 75))
-botaovermelho = pygame.image.load('assets/img/botaovermelho-removebg-preview.png').convert() 
+botaovermelho = pygame.image.load('assets/img/botaovermelho.png').convert_alpha() 
 botaovermelho = pygame.transform.scale(botaovermelho, (210, 75))
 
 DADO_WIDTH = 125
@@ -220,7 +220,7 @@ while game and venceu == 0:
     
     #Desenhando botões
     cor_verde = (0, 255, 0)
-    pygame.draw.rect(window, cor_verde, ret_verde)
+    # pygame.draw.rect(window, cor_verde, ret_verde)
     window.blit(botaoverde, (50, 550))
     rodar = font.render('RODAR', True, (244, 244, 244))
     text_rect = rodar.get_rect()
@@ -228,7 +228,7 @@ while game and venceu == 0:
     window.blit(rodar, text_rect)
 
     cor_vermelha = (255, 0, 0)
-    pygame.draw.rect(window, cor_vermelha, ret_vermelho)
+    # pygame.draw.rect(window, cor_vermelha, ret_vermelho)
     window.blit(botaovermelho, (350, 550))
     parar = font.render('PARAR', True, (244, 244, 244))
     text_rect = parar.get_rect()
