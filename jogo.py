@@ -19,7 +19,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
     fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
-    font_tit = pygame.font.SysFont('arial black', 50)
+    font_tit = pygame.font.Font('assets/font/fonte.TTF', 50)
     titulo = font_tit.render('No 1, rodou!', True, (255, 255, 255))
     
     font_inst = pygame.font.SysFont('arial', 25)
