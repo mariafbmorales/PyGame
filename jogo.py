@@ -40,7 +40,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
 #Tela final do jogo (feito 50% pelo ChatGPT)
 def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
-    fundo = pygame.image.load('assets/img/imagemfundo2.png').convert_alpha()
+    fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
     font_tit = pygame.font.SysFont('arial black', 50)
