@@ -16,7 +16,7 @@ pygame.display.set_caption('No 1, rodou')
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
 
-    fundo = pygame.image.load('assets/img/imagemfundo2.png').convert_alpha()
+    fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
     font_tit = pygame.font.SysFont('arial black', 50)
