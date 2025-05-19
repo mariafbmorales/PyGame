@@ -19,8 +19,8 @@ def tela_inicial(window, WIDTH, HEIGHT):
     fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
-    font_inst = pygame.font.SysFont('arial', 25)
-    instrucoes = font_inst.render('Clique ou aperte uma tecla para começar o jogo', True, (255, 255, 255))
+    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 20)
+    instrucoes = font_inst.render('CLIQUE PARA JOGAR', True, (255, 255, 255))
 
     while inicio:
         for event in pygame.event.get():
