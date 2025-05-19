@@ -11,6 +11,7 @@ HEIGHT = 750
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
+
 #Tela inicial do jogo (feito 50% pelo ChatGPT)
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
@@ -37,36 +38,8 @@ def tela_inicial(window, WIDTH, HEIGHT):
         window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
         pygame.display.update()
 
-#Inicia assets
-fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fundo gerada pelo ChatGPT
-fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
-DADO_WIDTH = 125
-DADO_HEIGHT = 125
-dado1_img = pygame.image.load('assets/img/dado1-removebg-preview.png').convert_alpha()
-dado1_img_small = pygame.transform.scale(dado1_img, (DADO_WIDTH, DADO_HEIGHT))
-dado2_img = pygame.image.load('assets/img/dado2-removebg-preview.png').convert_alpha()
-dado2_img_small = pygame.transform.scale(dado2_img, (DADO_WIDTH, DADO_HEIGHT))
-dado3_img = pygame.image.load('assets/img/dado3-removebg-preview.png').convert_alpha()
-dado3_img_small = pygame.transform.scale(dado3_img, (DADO_WIDTH, DADO_HEIGHT))
-dado4_img = pygame.image.load('assets/img/dado4-removebg-preview.png').convert_alpha()
-dado4_img_small = pygame.transform.scale(dado4_img, (DADO_WIDTH, DADO_HEIGHT))
-dado5_img = pygame.image.load('assets/img/dado5-removebg-preview.png').convert_alpha()
-dado5_img_small = pygame.transform.scale(dado5_img, (DADO_WIDTH, DADO_HEIGHT))
-dado6_img = pygame.image.load('assets/img/dado6-removebg-preview.png').convert_alpha()
-dado6_img_small = pygame.transform.scale(dado6_img, (DADO_WIDTH, DADO_HEIGHT))
-lista_dados = [0,dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_small, dado5_img_small, dado6_img_small]
-
-#Função para animar o dado girando (feito 100% pelo ChatGPT)
-def animar_dado(window, lista_dados, WIDTH, HEIGHT):
-    for _ in range(10):  #10 frames de "giro"
-        n_animado = random.randint(1, 6)
-        imagem = lista_dados[n_animado]
-        window.blit(fundo, (0, 0)) #Fundo
-        window.blit(imagem, ((WIDTH-DADO_WIDTH) // 2, (HEIGHT-DADO_HEIGHT) // 2))
-        pygame.display.update()
-        pygame.time.delay(70) #Delay entre frames
-
-def tela_final(window, WIDTH, HEIGHT, jogador_vencedor): #Feito 50% pelo ChatGPT
+#Tela final do jogo (feito 50% pelo ChatGPT)
+def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     fundo = pygame.image.load('assets/img/imagemfundo2.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
     
@@ -90,6 +63,44 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor): #Feito 50% pelo ChatGPT
         window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
         window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
         pygame.display.update()
+
+
+#Inicia assets
+fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fundo gerada pelo ChatGPT
+fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
+
+botaoverde = pygame.image.load('assets/img/botaoverde-removebg-preview.png').convert() 
+botaoverde = pygame.transform.scale(botaoverde, (210, 75))
+botaovermelho = pygame.image.load('assets/img/botaovermelho-removebg-preview.png').convert() 
+botaovermelho = pygame.transform.scale(botaovermelho, (210, 75))
+
+DADO_WIDTH = 125
+DADO_HEIGHT = 125
+dado1_img = pygame.image.load('assets/img/dado1-removebg-preview.png').convert_alpha()
+dado1_img_small = pygame.transform.scale(dado1_img, (DADO_WIDTH, DADO_HEIGHT))
+dado2_img = pygame.image.load('assets/img/dado2-removebg-preview.png').convert_alpha()
+dado2_img_small = pygame.transform.scale(dado2_img, (DADO_WIDTH, DADO_HEIGHT))
+dado3_img = pygame.image.load('assets/img/dado3-removebg-preview.png').convert_alpha()
+dado3_img_small = pygame.transform.scale(dado3_img, (DADO_WIDTH, DADO_HEIGHT))
+dado4_img = pygame.image.load('assets/img/dado4-removebg-preview.png').convert_alpha()
+dado4_img_small = pygame.transform.scale(dado4_img, (DADO_WIDTH, DADO_HEIGHT))
+dado5_img = pygame.image.load('assets/img/dado5-removebg-preview.png').convert_alpha()
+dado5_img_small = pygame.transform.scale(dado5_img, (DADO_WIDTH, DADO_HEIGHT))
+dado6_img = pygame.image.load('assets/img/dado6-removebg-preview.png').convert_alpha()
+dado6_img_small = pygame.transform.scale(dado6_img, (DADO_WIDTH, DADO_HEIGHT))
+lista_dados = [0,dado1_img_small, dado2_img_small, dado3_img_small, dado4_img_small, dado5_img_small, dado6_img_small]
+
+
+#Função para animar o dado girando (feito 100% pelo ChatGPT)
+def animar_dado(window, lista_dados, WIDTH, HEIGHT):
+    for _ in range(10):  #10 frames de "giro"
+        n_animado = random.randint(1, 6)
+        imagem = lista_dados[n_animado]
+        window.blit(fundo, (0, 0)) #Fundo
+        window.blit(imagem, ((WIDTH-DADO_WIDTH) // 2, (HEIGHT-DADO_HEIGHT) // 2))
+        pygame.display.update()
+        pygame.time.delay(70) #Delay entre frames
+
 
 #Inicia estrutura de dados
 game = True
@@ -210,6 +221,7 @@ while game and venceu == 0:
     #Desenhando botões
     cor_verde = (0, 255, 0)
     pygame.draw.rect(window, cor_verde, ret_verde)
+    window.blit(botaoverde, (50, 550))
     rodar = font.render('RODAR', True, (244, 244, 244))
     text_rect = rodar.get_rect()
     text_rect.midtop = (150, 570)
@@ -217,6 +229,7 @@ while game and venceu == 0:
 
     cor_vermelha = (255, 0, 0)
     pygame.draw.rect(window, cor_vermelha, ret_vermelho)
+    window.blit(botaovermelho, (350, 550))
     parar = font.render('PARAR', True, (244, 244, 244))
     text_rect = parar.get_rect()
     text_rect.midtop = (450, 570)
