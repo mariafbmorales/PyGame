@@ -31,7 +31,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
                 inicio = False
 
         window.blit(fundo, (0, 0))
-        window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
+        window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 650))
         pygame.display.update()
 
 #Tela final do jogo (feito 50% pelo ChatGPT)
