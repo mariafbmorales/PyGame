@@ -44,7 +44,7 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
-    
+
     font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 20)
     instrucoes = font_inst.render('Aperte uma tecla para sair', True, (255, 255, 255))
 
@@ -187,15 +187,15 @@ while game and venceu == 0:
     font = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
 
     #Texto da pontuação total do jogador 1
-    total1 = font.render('TOTAL 1: '"{:03d}".format(pontuacao_total1), True, (244, 244, 244))
+    total1 = font.render('P1: '"{:03d}".format(pontuacao_total1), True, (244, 244, 244))
     text_rect = total1.get_rect()
-    text_rect.midtop = (WIDTH //4, 15)
+    text_rect.midtop = (WIDTH //4, 20)
     window.blit(total1, text_rect)
 
     #Texto da pontuação total do jogador 2
-    total2 = font.render('TOTAL 2: '"{:03d}".format(pontuacao_total2), True, (244, 244, 244))
+    total2 = font.render('P2: '"{:03d}".format(pontuacao_total2), True, (244, 244, 244))
     text_rect = total2.get_rect()
-    text_rect.midtop = (WIDTH*3//4, 15)
+    text_rect.midtop = (WIDTH*3//4, 20)
     window.blit(total2, text_rect)
 
     #Texto da pontuação da partida
