@@ -18,7 +18,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
     fundo1 = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
-    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT/1.2))
+    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT/1.25))
     
     inicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
     inicio_img_small = pygame.transform.scale(inicio, (250, 250))
@@ -33,7 +33,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
         window.blit(fundo1, (0,0))
         window.blit(fundo, (0, 30))
-        window.blit(inicio_img_small, ((175, 540)))
+        window.blit(inicio_img_small, ((175, 510)))
         pygame.display.update()
 
 #Tela final do jogo (feito 50% pelo ChatGPT)
