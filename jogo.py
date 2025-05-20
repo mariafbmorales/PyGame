@@ -44,9 +44,10 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
-
-    font_inst = pygame.font.Font('assets/font/PressStart2P.ttf', 20)
-    instrucoes = font_inst.render('Aperte uma tecla para sair', True, (255, 255, 255))
+    botao_jn = pygame.image.load('assets/img/jogardnv-removebg-preview.png').convert_alpha()
+    botao_jn = pygame.transform.scale(botao_jn, (250, 110))
+    botao_sair = pygame.image.load('assets/img/botaosair-removebg-preview.png').convert_alpha()
+    botao_sair = pygame.transform.scale(botao_sair, (250, 110))
 
     fim = True
     while fim:
@@ -59,7 +60,8 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
 
         window.blit(fundo, (0, 0))
         window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
-        window.blit(instrucoes, ((WIDTH - instrucoes.get_width()) // 2, 350))
+        window.blit(botao_jn, (40, 510))
+        window.blit(botao_sair, (320, 510))
         pygame.display.update()
 
 
