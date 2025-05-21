@@ -26,13 +26,12 @@ def tela_inicial(window, WIDTH, HEIGHT):
     inicio_img_small = pygame.transform.scale(inicio, (250, 250))
 
     #Definindo posição e tamanho dos botões que aparecem na tela final do jogo
-    ret_start = pygame.Rect(250, 250, 175, 510)
+    ret_start = pygame.Rect(250, 570, 175, 150)
 
     while inicio:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                if event.type == pygame.QUIT:
-                    inicio = False
+                inicio = False
 
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
@@ -54,13 +53,11 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
 
-    botao_jn = pygame.image.load('assets/img/jogardnv-removebg-preview.png').convert_alpha()
-    botao_jn = pygame.transform.scale(botao_jn, (250, 110))
+    #Imagem do botao de sair
     botao_sair = pygame.image.load('assets/img/botaosair-removebg-preview.png').convert_alpha()
-    botao_sair = pygame.transform.scale(botao_sair, (250, 110))
-
-    ret_jogarnovamente = pygame.Rect(40, 510, 250, 110)
-    ret_fimdejogo = pygame.Rect(320, 510, 250, 110)
+    botao_sair = pygame.transform.scale(botao_sair, (250, 120))
+    #Posição botão de sair
+    ret_fimdejogo = pygame.Rect(250, 570, 175, 150)
 
     #Carregando as imagens da animação
     pinkfireworks_imgs = []
@@ -92,13 +89,10 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
                 pos = pygame.mouse.get_pos()
                 if ret_fimdejogo.collidepoint(pos):
                     fim = False
-                elif ret_jogarnovamente.collidepoint(pos): 
-                    tela_inicial(window, WIDTH, HEIGHT)
 
         window.blit(fundo, (0, 0))
         window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
-        window.blit(botao_jn, (40, 510))
-        window.blit(botao_sair, (320, 510))
+        window.blit(botao_sair, (WIDTH//2-125, 560))
 
         # Exibe a imagem atual da animação (em loop)
         pinkfireworks_img = pinkfireworks_imgs[frame // 5 % len(pinkfireworks_imgs)]  # Controla velocidade com "// 5"
