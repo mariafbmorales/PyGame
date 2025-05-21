@@ -15,6 +15,8 @@ pygame.display.set_caption('No 1, rodou')
 
 #Adicionando os sons
 perdeu_sound = pygame.mixer.Sound('assets/sounds/dado1som.wav')
+ganhou_sound = pygame.mixer.Sound('assets/sounds/Victory.wav')
+
 #Tela inicial do jogo (feito 50% pelo ChatGPT)
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
@@ -201,7 +203,7 @@ while game and venceu == 0:
                 elif n == 6:
                     pontuacao_partida += 6
                 elif n == 1:
-                    perdeu_sound.play()
+                    perdeu_sound.play() #colocando som para tocas quando cai o dado 1
                     pontuacao_partida = 0
                     perdeu = True
                 print("Pontuacao partida", pontuacao_partida)
@@ -211,12 +213,14 @@ while game and venceu == 0:
                 if vez == 1:
                     pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 1
                     if pontuacao_total1 >= 10:
+                        ganhou_sound.play()
                         venceu = 1
                         print("1 venceu")
                     vez = 2
                 else:
                     pontuacao_total2 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 2
                     if pontuacao_total2 >= 10:
+                        ganhou_sound.play()
                         venceu = 2
                         print("2 venceu")
                     vez = 1
