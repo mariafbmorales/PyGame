@@ -14,7 +14,7 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
 #Adicionando os sons
-perdeu_sound = pygame.mixer.Sound('assets/sounds/dado1som.wav')
+perdeu_sound = pygame.mixer.Sound('assets/sounds/losetrumpet.mp3')
 ganhou_sound = pygame.mixer.Sound('assets/sounds/Victory.wav')
 
 #Tela inicial do jogo (feito 50% pelo ChatGPT)
