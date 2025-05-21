@@ -13,7 +13,8 @@ HEIGHT = 750
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('No 1, rodou')
 
-
+#Adicionando os sons
+perdeu_sound = pygame.mixer.Sound('assets/sounds/dado1som.wav')
 #Tela inicial do jogo (feito 50% pelo ChatGPT)
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
@@ -200,6 +201,7 @@ while game and venceu == 0:
                 elif n == 6:
                     pontuacao_partida += 6
                 elif n == 1:
+                    perdeu_sound.play()
                     pontuacao_partida = 0
                     perdeu = True
                 print("Pontuacao partida", pontuacao_partida)
