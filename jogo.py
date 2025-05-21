@@ -57,8 +57,8 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
     font = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
     
     ret_continuar = pygame.Rect(250, 570, 175, 150)
-    botao_continuar = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
-    botao_continuar = pygame.transform.scale(botao_continuar, (250, 250))
+    botao_continuar = pygame.image.load('assets/img/botaocontinuar.png').convert_alpha()
+    botao_continuar = pygame.transform.scale(botao_continuar, (250, 95))
 
     while tela_meio:
         for event in pygame.event.get():
@@ -71,7 +71,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
 
 
         window.blit(fundo, (0, 0))
-        window.blit(botao_continuar, (175, 510))
+        window.blit(botao_continuar, (175, 580))
 
         texto = font.render('Quando for a sua vez de jogar,', True, (244, 244, 244))
         texto2 = font.render(' clique no botão rodar.', True, (244, 244, 244))
