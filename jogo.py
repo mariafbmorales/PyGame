@@ -23,13 +23,18 @@ def tela_inicial(window, WIDTH, HEIGHT):
     inicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
     inicio_img_small = pygame.transform.scale(inicio, (250, 250))
 
+    #Definindo posição e tamanho dos botões que aparecem na tela final do jogo
+    ret_start = pygame.Rect(250, 250, 175, 510)
+
     while inicio:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
+                if event.type == pygame.QUIT:
+                    fim = False
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
-                inicio = False
+                pos = pygame.mouse.get_pos()
+                if ret_start.collidepoint(pos):
+                    inicio = False
 
         window.blit(fundo1, (0,0))
         window.blit(fundo, (0, 30))
@@ -44,21 +49,29 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
-    
+
     #Adicionando imagem dos botões de jogar novamente e de sair do jogo
     botao_jn = pygame.image.load('assets/img/jogardnv-removebg-preview.png').convert_alpha()
     botao_jn = pygame.transform.scale(botao_jn, (250, 110))
     botao_sair = pygame.image.load('assets/img/botaosair-removebg-preview.png').convert_alpha()
     botao_sair = pygame.transform.scale(botao_sair, (250, 110))
 
+    #Definindo posição e tamanho dos botões que aparecem na tela final do jogo
+    ret_jogarnovamente = pygame.Rect(40, 510, 250, 110)
+    ret_fimdejogo = pygame.Rect(320, 510, 250, 110)
+
     fim = True
     while fim:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
-            elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 fim = False
+            elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+                pos = pygame.mouse.get_pos()
+                if ret_fimdejogo.collidepoint(pos):
+                    fim = False
+                elif ret_jogarnovamente.collidepoint(pos):
+                    tela_inicial(window, WIDTH, HEIGHT)
+
 
         window.blit(fundo, (0, 0))
         window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
@@ -107,12 +120,9 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
 #Inicia estrutura de dados
 game = True
 
-#Definindo posição e tamanho dos retangulos que aparecem na segunda tela do jogo
+#Definindo posição e tamanho dos retangulos que aparecem na tela principal
 ret_verde = pygame.Rect(50, 550, 200, 70) 
 ret_vermelho = pygame.Rect(350, 550, 200, 70)
-#Definindo posição e tamanho dos retangulos que aparecem na tela final do jogo
-ret_jogarnovamente = pygame.Rect(40, 510, 250, 110)
-ret_fimdejogo = pygame.Rect(320, 510, 250, 110)
 
 pontuacao_total1 = 0
 pontuacao_total2 = 0
