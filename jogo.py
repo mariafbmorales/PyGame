@@ -30,7 +30,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 if event.type == pygame.QUIT:
-                    fim = False
+                    inicio = False
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
                 if ret_start.collidepoint(pos):
