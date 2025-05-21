@@ -33,12 +33,11 @@ def tela_inicial(window, WIDTH, HEIGHT):
             if event.type == pygame.QUIT:
                 if event.type == pygame.QUIT:
                     inicio = False
-                    return "sair"
+
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
                 if ret_start.collidepoint(pos):
                     inicio = False
-                    return "jogo"
 
         window.blit(fundo1, (0,0))
         window.blit(fundo, (0, 30))
@@ -63,24 +62,26 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     ret_jogarnovamente = pygame.Rect(40, 510, 250, 110)
     ret_fimdejogo = pygame.Rect(320, 510, 250, 110)
 
-    # Carregando as imagens da animação
+    #Carregando as imagens da animação
     pinkfireworks_imgs = []
     purplefireworks_imgs = []
     yellowfireworks_imgs = []
-    for i in range(1, 8):  # Imagens numeradas de 1 a 7
+    #Fazendo o loop que ira gerar a animação
+    for i in range(1, 8):  #Imagens numeradas de 1 a 7
         pinkimg_path = 'assets/img/pinkfireworks/' + str(i) + '.png'
         pink_img = pygame.image.load(pinkimg_path).convert_alpha()
-        pinkfireworks_imgs.append(pygame.transform.scale(pink_img, (250, 250)))  # Redimensiona se necessário
+        pinkfireworks_imgs.append(pygame.transform.scale(pink_img, (250, 250)))
 
         purpleimg_path = 'assets/img/purplefireworks/' + str(i) + '.png'
         purple_img = pygame.image.load(purpleimg_path).convert_alpha()
-        purplefireworks_imgs.append(pygame.transform.scale(purple_img, (250, 250)))  # Redimensiona se necessário
+        purplefireworks_imgs.append(pygame.transform.scale(purple_img, (250, 250)))
 
         yellowimg_path = 'assets/img/yellowfireworks/' + str(i) + '.png'
         yellow_img = pygame.image.load(yellowimg_path).convert_alpha()
-        yellowfireworks_imgs.append(pygame.transform.scale(yellow_img, (250, 250)))  # Redimensiona se necessário
+        yellowfireworks_imgs.append(pygame.transform.scale(yellow_img, (250, 250)))
+
     clock = pygame.time.Clock()
-    frame = 0  # Para controlar o índice da animação
+    frame = 0  #Controla o índice da animação
 
     fim = True
     while fim:
@@ -101,17 +102,13 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
 
         # Exibe a imagem atual da animação (em loop)
         pinkfireworks_img = pinkfireworks_imgs[frame // 5 % len(pinkfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(pinkfireworks_img, (10, 100))  # Centraliza no topo
+        window.blit(pinkfireworks_img, (10, 100))  
 
         purplefireworks_img = purplefireworks_imgs[frame // 5 % len(purplefireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(purplefireworks_img, (175, 100))  # Centraliza no topo
+        window.blit(purplefireworks_img, (175, 100))  
 
         yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(yellowfireworks_img, (400, 100))  # Centraliza no topo
-
-        yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(yellowfireworks_img, ((WIDTH - 150), HEIGHT - 100))  # Centraliza no topo
-
+        window.blit(yellowfireworks_img, (400, 100))  
 
         pygame.display.update()
         clock.tick(30)  # 30 FPS
@@ -124,12 +121,12 @@ fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fun
 fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
 
 botaoverde = pygame.image.load('assets/img/startsemfundo-removebg-preview.png').convert_alpha() 
-botaoverde = pygame.transform.scale(botaoverde, (210, 180))
+botaoverde = pygame.transform.scale(botaoverde, (230, 200))
 botaovermelho = pygame.image.load('assets/img/pararsemfundo-removebg-preview.png').convert_alpha() 
-botaovermelho = pygame.transform.scale(botaovermelho, (210, 180))
-#Definindo posição e tamanho dos retangulos que aparecem na tela principal
-ret_verde = pygame.Rect(50, 550, 210, 60) 
-ret_vermelho = pygame.Rect(350, 550, 210, 60)
+botaovermelho = pygame.transform.scale(botaovermelho, (230, 200))
+#Definindo posição e tamanho dos botões que aparecem na tela principal
+ret_verde = pygame.Rect(60, 550, 210, 70) 
+ret_vermelho = pygame.Rect(WIDTH-250, 550, 180, 70)
 
 DADO_WIDTH = 125
 DADO_HEIGHT = 125
@@ -278,7 +275,7 @@ while game and venceu == 0:
     text_rect.midtop = (157, 578)
 
     cor_vermelha = (255, 0, 0)
-    window.blit(botaovermelho, (350, 500))
+    window.blit(botaovermelho, (WIDTH-280, 500))
     text_rect.midtop = (457, 578)
 
     #Atualiza estado do jogo
