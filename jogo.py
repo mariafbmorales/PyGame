@@ -47,6 +47,49 @@ def tela_inicial(window, WIDTH, HEIGHT):
         window.blit(inicio_img_small, ((175, 510)))
         pygame.display.update()
 
+#Criando tela de como jogar o jogo
+def tela_instrucoes(window, WIDTH, HEIGHT):
+    tela_meio = True 
+
+    fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
+    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
+
+    font = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
+    
+    ret_continuar = pygame.Rect(250, 570, 175, 150)
+    botao_continuar = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
+    botao_continuar = pygame.transform.scale(botao_continuar, (250, 250))
+
+    while tela_meio:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                tela_meio = False
+            elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+                pos = pygame.mouse.get_pos()
+                if ret_continuar.collidepoint(pos):
+                    tela_meio = False
+
+
+        window.blit(fundo, (0, 0))
+        window.blit(botao_continuar, (175, 510))
+
+        texto = font.render('Quando for a sua vez de jogar,', True, (244, 244, 244))
+        texto2 = font.render(' clique no botão rodar.', True, (244, 244, 244))
+        texto3 = font.render('Se quiser, você pode passar a vez', True, (244, 244, 244))
+        texto4 = font.render('para o próximo jogador.', True, (244, 244, 244))
+        texto5 = font.render('Objetivo: fazer 100 ou mais pontos,', True, (244, 244, 244))
+        texto6 = font.render('mas se cair o dado 1, perde tudo.', True, (244, 244, 244))
+
+        window.blit(texto, (30, 30))
+        window.blit(texto2, (30, 70))
+        window.blit(texto3, (30, 110))
+        window.blit(texto4, (30, 150))
+        window.blit(texto5, (30, 190))
+        window.blit(texto6, (30, 230))
+
+        pygame.display.update()
+
+
 #Tela final do jogo (feito 50% pelo ChatGPT)
 def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
 
@@ -133,6 +176,7 @@ botaoverde = pygame.image.load('assets/img/startsemfundo-removebg-preview.png').
 botaoverde = pygame.transform.scale(botaoverde, (230, 200))
 botaovermelho = pygame.image.load('assets/img/pararsemfundo-removebg-preview.png').convert_alpha() 
 botaovermelho = pygame.transform.scale(botaovermelho, (230, 200))
+
 #Definindo posição e tamanho dos botões que aparecem na tela principal
 ret_verde = pygame.Rect(60, 550, 210, 70) 
 ret_vermelho = pygame.Rect(WIDTH-250, 550, 180, 70)
@@ -177,7 +221,8 @@ vez = 1
 perdeu = False
 
 tela_inicial(window, WIDTH, HEIGHT) #Chamando tela inicial antes do inicio do jogo
-
+tela_instrucoes(window, WIDTH, HEIGHT)  # Chama tela de intruções sobre o jogo
+ 
 #Loop principal
 while game and venceu == 0:
     for event in pygame.event.get():
