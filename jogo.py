@@ -101,13 +101,13 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
 
         # Exibe a imagem atual da animação (em loop)
         pinkfireworks_img = pinkfireworks_imgs[frame // 5 % len(pinkfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(pinkfireworks_img, ((WIDTH - 150) // 4, 100))  # Centraliza no topo
+        window.blit(pinkfireworks_img, (10, 100))  # Centraliza no topo
 
         purplefireworks_img = purplefireworks_imgs[frame // 5 % len(purplefireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(purplefireworks_img, ((WIDTH - 150) // 2, 100))  # Centraliza no topo
+        window.blit(purplefireworks_img, (175, 100))  # Centraliza no topo
 
         yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(yellowfireworks_img, ((WIDTH - 150), 100))  # Centraliza no topo
+        window.blit(yellowfireworks_img, (400, 100))  # Centraliza no topo
 
         yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
         window.blit(yellowfireworks_img, ((WIDTH - 150), HEIGHT - 100))  # Centraliza no topo
