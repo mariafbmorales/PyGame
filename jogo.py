@@ -18,9 +18,10 @@ pygame.display.set_caption('No 1, rodou')
 def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
 
-    fundo1 = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
-    fundo = pygame.image.load('assets/img/logoinicial.png').convert_alpha()
-    fundo = pygame.transform.scale(fundo, (470, HEIGHT/1.3))
+    fundo1 = pygame.image.load('assets/img/fundoinicial.png').convert()
+    fundo1 = pygame.transform.scale(fundo1, (WIDTH, HEIGHT))
+    fundo = pygame.image.load('assets/img/logo.png').convert_alpha()
+    fundo = pygame.transform.scale(fundo, (475, HEIGHT/1.6))
     
     inicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
     inicio_img_small = pygame.transform.scale(inicio, (250, 250))
@@ -39,7 +40,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
                     inicio = False
 
         window.blit(fundo1, (0,0))
-        window.blit(fundo, (WIDTH//2-235, 60))
+        window.blit(fundo, (WIDTH//2-235, 70))
         window.blit(inicio_img_small, ((175, 510)))
         pygame.display.update()
 
