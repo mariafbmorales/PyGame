@@ -1,6 +1,8 @@
 #Importa e inicia pacotes
 import pygame 
 import random
+import os
+import time
 
 pygame.init() 
 pygame.mixer.init() #Inicializando o uso de sons
@@ -31,10 +33,12 @@ def tela_inicial(window, WIDTH, HEIGHT):
             if event.type == pygame.QUIT:
                 if event.type == pygame.QUIT:
                     inicio = False
+                    return "sair"
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
                 if ret_start.collidepoint(pos):
                     inicio = False
+                    return "jogo"
 
         window.blit(fundo1, (0,0))
         window.blit(fundo, (0, 30))
@@ -43,22 +47,40 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
 #Tela final do jogo (feito 50% pelo ChatGPT)
 def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
+
     fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
-    
+
     font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
 
-    #Adicionando imagem dos botões de jogar novamente e de sair do jogo
     botao_jn = pygame.image.load('assets/img/jogardnv-removebg-preview.png').convert_alpha()
     botao_jn = pygame.transform.scale(botao_jn, (250, 110))
     botao_sair = pygame.image.load('assets/img/botaosair-removebg-preview.png').convert_alpha()
     botao_sair = pygame.transform.scale(botao_sair, (250, 110))
 
-    #Definindo posição e tamanho dos botões que aparecem na tela final do jogo
     ret_jogarnovamente = pygame.Rect(40, 510, 250, 110)
     ret_fimdejogo = pygame.Rect(320, 510, 250, 110)
+
+    # Carregando as imagens da animação
+    pinkfireworks_imgs = []
+    purplefireworks_imgs = []
+    yellowfireworks_imgs = []
+    for i in range(1, 8):  # Imagens numeradas de 1 a 7
+        pinkimg_path = 'assets/img/pinkfireworks/' + str(i) + '.png'
+        pink_img = pygame.image.load(pinkimg_path).convert_alpha()
+        pinkfireworks_imgs.append(pygame.transform.scale(pink_img, (250, 250)))  # Redimensiona se necessário
+
+        purpleimg_path = 'assets/img/purplefireworks/' + str(i) + '.png'
+        purple_img = pygame.image.load(purpleimg_path).convert_alpha()
+        purplefireworks_imgs.append(pygame.transform.scale(purple_img, (250, 250)))  # Redimensiona se necessário
+
+        yellowimg_path = 'assets/img/yellowfireworks/' + str(i) + '.png'
+        yellow_img = pygame.image.load(yellowimg_path).convert_alpha()
+        yellowfireworks_imgs.append(pygame.transform.scale(yellow_img, (250, 250)))  # Redimensiona se necessário
+    clock = pygame.time.Clock()
+    frame = 0  # Para controlar o índice da animação
 
     fim = True
     while fim:
@@ -69,25 +91,45 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
                 pos = pygame.mouse.get_pos()
                 if ret_fimdejogo.collidepoint(pos):
                     fim = False
-                elif ret_jogarnovamente.collidepoint(pos):
+                elif ret_jogarnovamente.collidepoint(pos): 
                     tela_inicial(window, WIDTH, HEIGHT)
-
 
         window.blit(fundo, (0, 0))
         window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
         window.blit(botao_jn, (40, 510))
         window.blit(botao_sair, (320, 510))
+
+        # Exibe a imagem atual da animação (em loop)
+        pinkfireworks_img = pinkfireworks_imgs[frame // 5 % len(pinkfireworks_imgs)]  # Controla velocidade com "// 5"
+        window.blit(pinkfireworks_img, ((WIDTH - 150) // 4, 100))  # Centraliza no topo
+
+        purplefireworks_img = purplefireworks_imgs[frame // 5 % len(purplefireworks_imgs)]  # Controla velocidade com "// 5"
+        window.blit(purplefireworks_img, ((WIDTH - 150) // 2, 100))  # Centraliza no topo
+
+        yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
+        window.blit(yellowfireworks_img, ((WIDTH - 150), 100))  # Centraliza no topo
+
+        yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
+        window.blit(yellowfireworks_img, ((WIDTH - 150), HEIGHT - 100))  # Centraliza no topo
+
+
         pygame.display.update()
+        clock.tick(30)  # 30 FPS
+
+        frame += 1
 
 
 #Inicia assets
 fundo = pygame.image.load('assets/img/teladefundo.png').convert() #Imagem de fundo gerada pelo ChatGPT
 fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
 
-botaoverde = pygame.image.load('assets/img/botaoverde.png').convert_alpha() 
-botaoverde = pygame.transform.scale(botaoverde, (210, 75))
-botaovermelho = pygame.image.load('assets/img/botaovermelho.png').convert_alpha() 
-botaovermelho = pygame.transform.scale(botaovermelho, (210, 75))
+botaoverde = pygame.image.load('assets/img/startsemfundo-removebg-preview.png').convert_alpha() 
+botaoverde = pygame.transform.scale(botaoverde, (210, 180))
+botaovermelho = pygame.image.load('assets/img/pararsemfundo-removebg-preview.png').convert_alpha() 
+botaovermelho = pygame.transform.scale(botaovermelho, (210, 180))
+#Definindo posição e tamanho dos retangulos que aparecem na tela principal
+ret_verde = pygame.Rect(50, 550, 210, 60) 
+ret_vermelho = pygame.Rect(350, 550, 210, 60)
 
 DADO_WIDTH = 125
 DADO_HEIGHT = 125
@@ -119,10 +161,6 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
 
 #Inicia estrutura de dados
 game = True
-
-#Definindo posição e tamanho dos retangulos que aparecem na tela principal
-ret_verde = pygame.Rect(50, 550, 200, 70) 
-ret_vermelho = pygame.Rect(350, 550, 200, 70)
 
 pontuacao_total1 = 0
 pontuacao_total2 = 0
@@ -236,20 +274,12 @@ while game and venceu == 0:
     
     #Desenhando botões de rodar e parar
     cor_verde = (0, 255, 0)
-    window.blit(botaoverde, (50, 550))
-    font = pygame.font.Font('assets/font/PressStart2P.ttf', 22)
-    rodar = font.render('RODAR', True, (244, 244, 244))
-    text_rect = rodar.get_rect()
+    window.blit(botaoverde, (50, 500))
     text_rect.midtop = (157, 578)
-    window.blit(rodar, text_rect)
 
     cor_vermelha = (255, 0, 0)
-    window.blit(botaovermelho, (350, 550))
-    font = pygame.font.Font('assets/font/PressStart2P.ttf', 22)
-    parar = font.render('PARAR', True, (244, 244, 244))
-    text_rect = parar.get_rect()
+    window.blit(botaovermelho, (350, 500))
     text_rect.midtop = (457, 578)
-    window.blit(parar, text_rect)
 
     #Atualiza estado do jogo
     pygame.display.update()
