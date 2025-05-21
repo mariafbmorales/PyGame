@@ -103,13 +103,18 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
 
         # Exibe a imagem atual da animação (em loop)
         pinkfireworks_img = pinkfireworks_imgs[frame // 5 % len(pinkfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(pinkfireworks_img, (10, 100))  
+        window.blit(pinkfireworks_img, (-20, 100))  
+        pinkfireworks_img = pinkfireworks_imgs[frame // 5 % len(pinkfireworks_imgs)]  # Controla velocidade com "// 5"
+        window.blit(pinkfireworks_img, (20, 420))  
 
         purplefireworks_img = purplefireworks_imgs[frame // 5 % len(purplefireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(purplefireworks_img, (175, 100))  
+        window.blit(purplefireworks_img, (175, -4))  
+        
 
         yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
-        window.blit(yellowfireworks_img, (400, 100))  
+        window.blit(yellowfireworks_img, (600-230, 100))  
+        yellowfireworks_img = yellowfireworks_imgs[frame // 5 % len(yellowfireworks_imgs)]  # Controla velocidade com "// 5"
+        window.blit(yellowfireworks_img, (600-270, 420))  
 
         pygame.display.update()
         clock.tick(30)  # 30 FPS
