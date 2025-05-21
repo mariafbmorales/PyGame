@@ -49,9 +49,15 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
 
-    font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
-    titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
-    titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
+     # Carrega a imagem do vencedor de acordo com o jogador
+    if jogador_vencedor == 1:
+        imagem_vencedor = pygame.image.load('assets/img/1vencedor.png').convert_alpha()
+    elif jogador_vencedor == 2:
+        imagem_vencedor = pygame.image.load('assets/img/2vencedor.png').convert_alpha()
+    # Ajusta o tamanho da imagem
+    imagem_vencedor = pygame.transform.scale(imagem_vencedor, (400, 400))
+    # Posição da imagem do vencedor
+    pos_imagem = imagem_vencedor.get_rect(center=(WIDTH//2, HEIGHT//2.3))
 
     #Imagem do botao de sair
     botao_sair = pygame.image.load('assets/img/botaosair-removebg-preview.png').convert_alpha()
@@ -91,7 +97,7 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
                     fim = False
 
         window.blit(fundo, (0, 0))
-        window.blit(titulo, ((WIDTH - titulo.get_width()) // 2, 250))
+        window.blit(imagem_vencedor, pos_imagem)
         window.blit(botao_sair, (WIDTH//2-125, 560))
 
         # Exibe a imagem atual da animação (em loop)
