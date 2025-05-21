@@ -44,6 +44,8 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     font_tit = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
     titulo_texto = f'Jogador {jogador_vencedor} ganhou!'
     titulo = font_tit.render(titulo_texto, True, (255, 255, 255))
+    
+    #Adicionando imagem dos botões de jogar novamente e de sair do jogo
     botao_jn = pygame.image.load('assets/img/jogardnv-removebg-preview.png').convert_alpha()
     botao_jn = pygame.transform.scale(botao_jn, (250, 110))
     botao_sair = pygame.image.load('assets/img/botaosair-removebg-preview.png').convert_alpha()
@@ -105,8 +107,12 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
 #Inicia estrutura de dados
 game = True
 
-ret_verde = pygame.Rect(50, 550, 200, 70)
+#Definindo posição e tamanho dos retangulos que aparecem na segunda tela do jogo
+ret_verde = pygame.Rect(50, 550, 200, 70) 
 ret_vermelho = pygame.Rect(350, 550, 200, 70)
+#Definindo posição e tamanho dos retangulos que aparecem na tela final do jogo
+ret_jogarnovamente = pygame.Rect(40, 510, 250, 110)
+ret_fimdejogo = pygame.Rect(320, 510, 250, 110)
 
 pontuacao_total1 = 0
 pontuacao_total2 = 0
@@ -218,7 +224,7 @@ while game and venceu == 0:
         text_rect.midtop = (290, 100)
         window.blit(vez2, text_rect)
     
-    #Desenhando botões
+    #Desenhando botões de rodar e parar
     cor_verde = (0, 255, 0)
     window.blit(botaoverde, (50, 550))
     font = pygame.font.Font('assets/font/PressStart2P.ttf', 22)
