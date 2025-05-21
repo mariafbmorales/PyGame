@@ -19,7 +19,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
     inicio = True
 
     fundo1 = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
-    fundo = pygame.image.load('assets/img/imageminicial.png').convert_alpha()
+    fundo = pygame.image.load('assets/img/logoinicial.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT/1.25))
     
     inicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
