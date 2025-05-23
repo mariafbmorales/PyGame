@@ -51,10 +51,10 @@ def tela_inicial(window, WIDTH, HEIGHT):
 def tela_instrucoes(window, WIDTH, HEIGHT):
     tela_meio = True 
 
-    fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
-    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
+    fundo = pygame.image.load('assets/img/fundoinstruções.png').convert_alpha()
+    fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT+40))
 
-    font = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
+    font = pygame.font.Font('assets/font/PressStart2P.ttf', 10)
     
     ret_continuar = pygame.Rect(250, 570, 175, 150)
     botao_continuar = pygame.image.load('assets/img/botaocontinuar.png').convert_alpha()
@@ -70,22 +70,31 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
                     tela_meio = False
 
 
-        window.blit(fundo, (0, 0))
+        window.blit(fundo, (0, -20))
         window.blit(botao_continuar, (175, 580))
 
-        texto = font.render('Quando for a sua vez de jogar,', True, (244, 244, 244))
-        texto2 = font.render(' clique no botão rodar.', True, (244, 244, 244))
-        texto3 = font.render('Se quiser, você pode passar a vez', True, (244, 244, 244))
-        texto4 = font.render('para o próximo jogador.', True, (244, 244, 244))
-        texto5 = font.render('Objetivo: fazer 100 ou mais pontos,', True, (244, 244, 244))
-        texto6 = font.render('mas se cair o dado 1, perde tudo.', True, (244, 244, 244))
+        texto = font.render('Instruções: o jogador da vez poderá rodar o', True, (0, 0, 0))
+        texto2 = font.render('dado quantas vezes desejar. Para isso, deve', True, (0, 0, 0))
+        texto3 = font.render('clicar no botão “rodar” . Quando quiser parar', True, (0, 0, 0))
+        texto4 = font.render('clicara no botão “parar”, e os pontos feitos', True, (0, 0, 0))
+        texto5 = font.render('na rodada serão adicionados a pontuação total', True, (0, 0, 0))
+        textox = font.render('Entretanto, se cair a face do dado com o nú-', True, (0, 0, 0))
+        texto6 = font.render('mero 1, o jogador perderá sua vez de jogar e', True, (0, 0, 0))
+        texto7 = font.render('sua pontuação da rodada será zerada, passando', True, (0, 0, 0))
+        texto8 = font.render('a vez para o seguinte jogador. O jogo é fina-', True, (0, 0, 0))
+        texto9 = font.render('lizado quando algum dos dois jogadores fizer', True, (0, 0, 0))
+        texto10 = font.render('100 pontos.', True, (0, 0, 0))
 
-        window.blit(texto, (30, 30))
-        window.blit(texto2, (30, 70))
-        window.blit(texto3, (30, 110))
-        window.blit(texto4, (30, 150))
-        window.blit(texto5, (30, 190))
-        window.blit(texto6, (30, 230))
+        window.blit(texto, (80, 70))
+        window.blit(texto2, (80, 110))
+        window.blit(texto3, (80, 150))
+        window.blit(texto4, (80, 190))
+        window.blit(texto5, (80, 230))
+        window.blit(textox, (80, 270))
+        window.blit(texto7, (80, 310))
+        window.blit(texto8, (80, 350))
+        window.blit(texto9, (80, 390))
+        window.blit(texto10, (80, 430))
 
         pygame.display.update()
 
