@@ -91,10 +91,11 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
         window.blit(texto4, (80, 190))
         window.blit(texto5, (80, 230))
         window.blit(textox, (80, 270))
-        window.blit(texto7, (80, 310))
-        window.blit(texto8, (80, 350))
-        window.blit(texto9, (80, 390))
-        window.blit(texto10, (80, 430))
+        window.blit(texto6, (80, 310))
+        window.blit(texto7, (80, 350))
+        window.blit(texto8, (80, 390))
+        window.blit(texto9, (80, 430))
+        window.blit(texto10, (80, 470))
 
         pygame.display.update()
 
