@@ -58,7 +58,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
     
     ret_continuar = pygame.Rect(250, 570, 175, 150)
     botao_continuar = pygame.image.load('assets/img/botaocontinuar.png').convert_alpha()
-    botao_continuar = pygame.transform.scale(botao_continuar, (250, 95))
+    botao_continuar = pygame.transform.scale(botao_continuar, (260, 95))
 
     while tela_meio:
         for event in pygame.event.get():
@@ -71,7 +71,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
 
 
         window.blit(fundo, (0, -20))
-        window.blit(botao_continuar, (175, 580))
+        window.blit(botao_continuar, (175, 560))
 
         texto = font.render('Instruções: o jogador da vez poderá rodar o', True, (0, 0, 0))
         texto2 = font.render('dado quantas vezes desejar. Para isso, deve', True, (0, 0, 0))
