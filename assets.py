@@ -50,8 +50,12 @@ logo = pygame.transform.scale(logo, (475, HEIGHT/1.6))
 botaoinicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
 botaoinicio_img_small = pygame.transform.scale(botaoinicio, (250, 250))
 
-#Definindo fonte e tamanho das letras que aparecem na de intruções
+#Definindo fonte e tamanho das letras que aparecem na tela de intruções
 font_instrucoes = pygame.font.Font('assets/font/PressStart2P.ttf', 10)
+
+#Definindo fonte e tamanho das letras que aparecem na tela principal
+font_vezjogador = pygame.font.Font('assets/font/PressStart2P.ttf', 25)
+font_pontuacao = pygame.font.Font('assets/font/PressStart2P.ttf', 17)
 
 botao_continuar = pygame.image.load('assets/img/botaocont.png').convert_alpha()
 botao_continuar = pygame.transform.scale(botao_continuar, (260, 95))

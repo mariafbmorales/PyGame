@@ -82,37 +82,34 @@ while game and venceu == 0:
     elif n == 6:
         window.blit(dado6_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
 
-    #Gerando o texto 
-    font = pygame.font.Font('assets/font/PressStart2P.ttf', 15)
-
     #Texto da pontuação total do jogador 1
-    total1 = font.render('P1: '"{:03d}".format(pontuacao_total1), True, (244, 244, 244))
+    total1 = font_pontuacao.render('P1: '"{:03d}".format(pontuacao_total1), True, (244, 244, 244))
     text_rect = total1.get_rect()
     text_rect.midtop = (WIDTH //4, 20)
     window.blit(total1, text_rect)
 
     #Texto da pontuação total do jogador 2
-    total2 = font.render('P2: '"{:03d}".format(pontuacao_total2), True, (244, 244, 244))
+    total2 = font_pontuacao.render('P2: '"{:03d}".format(pontuacao_total2), True, (244, 244, 244))
     text_rect = total2.get_rect()
     text_rect.midtop = (WIDTH*3//4, 20)
     window.blit(total2, text_rect)
 
     #Texto da pontuação da partida
-    partida = font.render('JOGADA: '"{:03d}".format(pontuacao_partida), True, (244, 244, 244))
+    partida = font_pontuacao.render('JOGADA: '"{:03d}".format(pontuacao_partida), True, (244, 244, 244))
     text_rect = partida.get_rect()
     text_rect.midtop = (WIDTH //2, 700)
     window.blit(partida, text_rect)
 
     #Colocando de qual jogador é a vez
     if vez == 1:
-        vez1 = font.render('VEZ DO JOGADOR 1', True, (244, 244, 244))
+        vez1 = font_vezjogador.render('VEZ DO JOGADOR 1', True, (244, 244, 244))
         text_rect = vez1.get_rect()
-        text_rect.midtop = (290, 100)
+        text_rect.midtop = (305, 130)
         window.blit(vez1, text_rect)
     elif vez == 2:
-        vez2 = font.render('VEZ DO JOGADOR 2', True, (244, 244, 244))
+        vez2 = font_vezjogador.render('VEZ DO JOGADOR 2', True, (244, 244, 244))
         text_rect = vez2.get_rect()
-        text_rect.midtop = (290, 100)
+        text_rect.midtop = (300, 130)
         window.blit(vez2, text_rect)
     
     #Desenhando botões de rodar e parar

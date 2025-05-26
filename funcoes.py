@@ -29,7 +29,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
         window.blit(background_inicio, (0,0))
         window.blit(logo, (WIDTH//2-235, 70))
-        window.blit(botaoinicio_img_small, ((175, 510)))
+        window.blit(botaoinicio_img_small, ((175, 490)))
         pygame.display.update()
 
 
