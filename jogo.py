@@ -36,6 +36,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 inicio = False
+                pygame.quit()
 
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
@@ -66,6 +67,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 tela_meio = False
+                pygame.quit()
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
                 if ret_continuar.collidepoint(pos):
@@ -152,6 +154,7 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 fim = False
+                pygame.quit()
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 pos = pygame.mouse.get_pos()
                 if ret_fimdejogo.collidepoint(pos):
