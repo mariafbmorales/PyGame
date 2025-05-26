@@ -19,6 +19,7 @@ ganhou_sound = pygame.mixer.Sound('assets/sounds/Victory.wav')
 
 #Tela inicial do jogo (feito 50% pelo ChatGPT)
 def tela_inicial(window, WIDTH, HEIGHT):
+    """ Função responsável por exibir a tela inicial  """
     inicio = True
 
     fundo1 = pygame.image.load('assets/img/fundoinicial.png').convert()
@@ -50,6 +51,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
 
 #Criando tela de instruções
 def tela_instrucoes(window, WIDTH, HEIGHT):
+    """ Função responsável por exibir a tela de instruções"""
     tela_meio = True 
 
     fundo = pygame.image.load('assets/img/fundoinstruções.png').convert_alpha()
@@ -108,6 +110,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
 
 #Tela final do jogo (feito 50% pelo ChatGPT)
 def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
+    """ Função responsável por exibir a tela final"""
 
     fundo = pygame.image.load('assets/img/teladefundo.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT))
