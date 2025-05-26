@@ -52,13 +52,13 @@ while game and venceu == 0:
                 perdeu = False
                 if vez == 1:
                     pontuacao_total1 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 1
-                    if pontuacao_total1 >= 10:
+                    if pontuacao_total1 >= 100:
                         ganhou_sound.play()
                         venceu = 1
                     vez = 2
                 else:
                     pontuacao_total2 += pontuacao_partida #Adiciona a pontuação daquela partida na pontuação total do jogador 2
-                    if pontuacao_total2 >= 10:
+                    if pontuacao_total2 >= 100:
                         ganhou_sound.play()
                         venceu = 2
                     vez = 1
