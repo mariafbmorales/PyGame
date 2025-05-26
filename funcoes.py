@@ -7,7 +7,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
     """ Função responsável por exibir a tela inicial 
 
     Args:
-        window: criando uma tela em branco
+        window: recebendo tela do pygame
         WIDTH: tamanho da tela no eixo x
         HEIGHT: tamanho da tela no eixo y
     """
@@ -38,7 +38,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
     """ Função responsável por exibir a tela de instruções
 
     Args:
-        window: criando uma tela em branco
+        window: recebendo tela do pygame
         WIDTH: tamanho da tela no eixo x
         HEIGHT: tamanho da tela no eixo y
     """
@@ -95,7 +95,7 @@ def tela_final(window, WIDTH, HEIGHT, jogador_vencedor):
     """_summary_
 
     Args:
-        window: criando uma tela em branco
+        window: recebendo tela do pygame
         WIDTH: tamanho no eixo x
         HEIGHT: tamanho no eixo y
         jogador_vencedor: qual dos jogadores venceu 
@@ -175,7 +175,7 @@ def animar_dado(window, lista_dados, WIDTH, HEIGHT):
     """Função responsável por rodar o dado
 
     Args:
-        window: criando uma tela em branco
+        window: recebendo tela do pygame
         lista_dados: lista de dados
         WIDTH: tamanho da tela no eixo x
         HEIGHT: tamanho da tela no eixo y
