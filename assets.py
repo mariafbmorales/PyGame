@@ -53,7 +53,7 @@ botaoinicio_img_small = pygame.transform.scale(botaoinicio, (250, 250))
 #Definindo fonte e tamanho das letras que aparecem na de intruções
 font_instrucoes = pygame.font.Font('assets/font/PressStart2P.ttf', 10)
 
-botao_continuar = pygame.image.load('assets/img/botaocontinuar.png').convert_alpha()
+botao_continuar = pygame.image.load('assets/img/botaocont.png').convert_alpha()
 botao_continuar = pygame.transform.scale(botao_continuar, (260, 95))
 
 #Imagem do botao de sair
