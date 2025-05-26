@@ -29,7 +29,7 @@ def tela_inicial(window, WIDTH, HEIGHT):
     inicio = pygame.image.load('assets/img/Botão_inicio.png-removebg-preview.png').convert_alpha()
     inicio_img_small = pygame.transform.scale(inicio, (250, 250))
 
-    #Definindo posição e tamanho dos botões que aparecem na tela final do jogo
+    #Definindo posição e tamanho dos botões que aparecem na tela inicial do jogo
     ret_start = pygame.Rect(250, 570, 175, 150)
 
     while inicio:
@@ -47,15 +47,17 @@ def tela_inicial(window, WIDTH, HEIGHT):
         window.blit(inicio_img_small, ((175, 510)))
         pygame.display.update()
 
-#Criando tela de como jogar o jogo
+#Criando tela de instruções
 def tela_instrucoes(window, WIDTH, HEIGHT):
     tela_meio = True 
 
     fundo = pygame.image.load('assets/img/fundoinstruções.png').convert_alpha()
     fundo = pygame.transform.scale(fundo, (WIDTH, HEIGHT+40))
 
+    #Definindo fonte e tamanho das letras que aparecem na de intruções
     font = pygame.font.Font('assets/font/PressStart2P.ttf', 10)
-    
+
+    #Definindo posição e tamanho dos botões que aparecem na de intruções
     ret_continuar = pygame.Rect(250, 570, 175, 150)
     botao_continuar = pygame.image.load('assets/img/botaocontinuar.png').convert_alpha()
     botao_continuar = pygame.transform.scale(botao_continuar, (260, 95))
@@ -73,6 +75,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
         window.blit(fundo, (0, -20))
         window.blit(botao_continuar, (175, 560))
 
+        #Texto das intruções
         texto = font.render('Instruções: o jogador da vez poderá rodar o', True, (0, 0, 0))
         texto2 = font.render('dado quantas vezes desejar. Para isso, deve', True, (0, 0, 0))
         texto3 = font.render('clicar no botão “rodar” . Quando quiser parar', True, (0, 0, 0))
@@ -85,6 +88,7 @@ def tela_instrucoes(window, WIDTH, HEIGHT):
         texto9 = font.render('lizado quando algum dos dois jogadores fizer', True, (0, 0, 0))
         texto10 = font.render('100 pontos.', True, (0, 0, 0))
 
+    #Posição dos textos
         window.blit(texto, (80, 70))
         window.blit(texto2, (80, 110))
         window.blit(texto3, (80, 150))
@@ -187,7 +191,7 @@ botaoverde = pygame.transform.scale(botaoverde, (230, 200))
 botaovermelho = pygame.image.load('assets/img/pararsemfundo-removebg-preview.png').convert_alpha() 
 botaovermelho = pygame.transform.scale(botaovermelho, (230, 200))
 
-#Definindo posição e tamanho dos botões que aparecem na tela principal
+#Definindo posição e tamanho dos botões da tela principal
 ret_verde = pygame.Rect(60, 550, 210, 70) 
 ret_vermelho = pygame.Rect(WIDTH-250, 550, 180, 70)
 
