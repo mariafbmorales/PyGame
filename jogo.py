@@ -66,9 +66,9 @@ while game and venceu == 0:
         
     #Gera saídas
     window.fill((0, 0, 0)) #Preenche com a cor branca
-    window.blit(fundo, (0, 0))
+    window.blit(fundo, (0, 0)) #Coloca tela de fundo
 
-    #Gerando imagens dos dados
+    #Gerando imagens dos dados, dependendo que qual for sorteado
     if n == 1:
         window.blit(dado1_img_small, ((WIDTH-DADO_WIDTH)//2, (HEIGHT-DADO_HEIGHT)//2))
     elif n == 2:
@@ -100,7 +100,7 @@ while game and venceu == 0:
     text_rect.midtop = (WIDTH //2, 700)
     window.blit(partida, text_rect)
 
-    #Colocando de qual jogador é a vez
+    #Definindo de qual jogador é a vez
     if vez == 1:
         vez1 = font_vezjogador.render('VEZ DO JOGADOR 1', True, (244, 244, 244))
         text_rect = vez1.get_rect()
@@ -124,7 +124,7 @@ while game and venceu == 0:
     #Atualiza estado do jogo
     pygame.display.update()
 if venceu != 0:
-    tela_final(window, WIDTH, HEIGHT, venceu)
+    tela_final(window, WIDTH, HEIGHT, venceu) #Chamando tela final caso alguem tiver vencido
 
 #Finalização
 pygame.quit()
